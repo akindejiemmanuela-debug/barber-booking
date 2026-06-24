@@ -1,0 +1,71 @@
+<!DOCTYPE html><html>
+<head>
+    <title>Statistics Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <style>
+    body{
+        font-family: Arial;
+        background:#f2f2f2;
+        margin:0;
+    }
+
+    .navbar{
+        background:black;
+        padding:15px;
+    }
+
+    .navbar a{
+        color:white;
+        text-decoration:none;
+        margin-right:20px;
+    }
+
+    h1{
+        text-align:center;
+        margin-top:30px;
+    }
+
+    .container{
+        width:80%;
+        margin:auto;
+    }
+
+    .card{
+        background:white;
+        padding:20px;
+        margin:15px;
+        border-radius:10px;
+        box-shadow:0px 0px 10px lightgray;
+        font-size:22px;
+    }
+</style>
+
+</head><body><div class="navbar">
+    <a href="/admin">Admin</a>
+    <a href="/stats">Statistics</a>
+    <a href="/logout">Logout</a>
+</div><h1>📊 Barber Shop Statistics</h1><div class="container"><div class="card">
+    📅 Total Bookings: {{ total }}
+</div>
+
+<div class="card">
+    ✅ Approved: {{ approved }}
+</div>
+
+<div class="card">
+    ⏳ Pending: {{ pending }}
+</div>
+
+<div class="card">
+    ❌ Rejected: {{ rejected }}
+</div>
+
+<div class="card">
+    ✂️ Most Popular Style:
+    {{ popular_style[0] if popular_style else "No bookings yet" }}
+</div>
+
+</div></body>
+</html>
