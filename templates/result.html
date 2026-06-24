@@ -1,0 +1,118 @@
+<!DOCTYPE html><html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>Booking Status</title><style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f2f2f2;
+    }
+
+    .navbar {
+        background: #111;
+        padding: 15px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        margin-right: 20px;
+    }
+
+    .card {
+        width: 400px;
+        margin: 60px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px lightgray;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .info {
+        margin: 15px 0;
+        font-size: 18px;
+    }
+
+    .approved {
+        color: green;
+        font-weight: bold;
+    }
+
+    .rejected {
+        color: red;
+        font-weight: bold;
+    }
+
+    .pending {
+        color: orange;
+        font-weight: bold;
+    }
+
+    .btn {
+        display: block;
+        text-align: center;
+        background: black;
+        color: white;
+        text-decoration: none;
+        padding: 12px;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    .btn:hover {
+        background: green;
+    }
+</style>
+
+</head><body><div class="navbar">
+    <a href="/">Home</a>
+    <a href="/gallery">Styles</a>
+    <a href="/status">Check Status</a>
+    <a href="/login">Admin</a>
+</div>
+
+<div class="card">
+
+    <h1>📋 Booking Status</h1>
+
+    <div class="info">
+        <strong>Name:</strong> {{ booking[1] }}
+    </div>
+
+    <div class="info">
+        <strong>Phone:</strong> {{ booking[2] }}
+    </div>
+
+    <div class="info">
+        <strong>Service:</strong> {{ booking[3] }}
+    </div>
+
+    <div class="info">
+        <strong>Status:</strong>
+
+        {% if booking[6] == "approved" %}
+            <span class="approved">✅ Approved</span>
+
+        {% elif booking[6] == "rejected" %}
+            <span class="rejected">❌ Rejected</span>
+
+        {% else %}
+            <span class="pending">⏳ Pending</span>
+
+        {% endif %}
+    </div>
+
+    <a href="/status" class="btn">
+        Check Another Booking
+    </a>
+
+</div>
+
+</body>
+</html>
