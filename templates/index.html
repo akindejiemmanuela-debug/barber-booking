@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Barber Booking</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f2f2f2;
+        }
+
+        .navbar {
+            background: black;
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 8px 10px;
+        }
+
+        .header {
+            background: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            margin: auto;
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: black;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: green;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar a {
+                margin: 5px;
+                font-size: 14px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+        }
+    
+    .hero-video{
+position:relative;
+width:100%;
+height:100vh;
+overflow:hidden;
+}
+
+.hero-video video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.hero-content{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+text-align:center;
+color:white;
+width:90%;
+}
+
+.hero-content h1{
+font-size:70px;
+margin:0;
+text-shadow:2px 2px 10px black;
+}
+
+.hero-content p{
+font-size:24px;
+margin-top:20px;
+text-shadow:2px 2px 10px black;
+}
+
+.hero-btn{
+margin-top:20px;
+background:#c9b09c;
+color:black;
+font-weight:bold;
+width:auto;
+padding:15px 30px;
+border:none;
+border-radius:5px;
+}
+
+@media(max-width:600px){
+
+.hero-content h1{
+    font-size:35px;
+}
+
+.hero-content p{
+    font-size:16px;
+}
+
+}
+    
+    </style>
+
+</head>
+
+<body>
+
+  <div class="hero-video"><video autoplay muted loop playsinline>
+    <source src="{{ url_for('static', filename='videos/barber.mp4') }}" type="video/mp4">
+</video>
+
+<div class="hero-content">
+
+    <h1>💈 ELITE BARBER SHOP</h1>
+
+    <p>Premium Haircuts • Modern Styles • Professional Service</p>
+
+    <a href="#booking">
+        <button class="hero-btn">BOOK NOW</button>
+    </a>
+
+</div>
+
+</div>
+
+
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/gallery">Styles</a>
+        <a href="/status">Check Status</a>
+        <a href="/login">Admin</a>
+    </div>
+
+    <div class="header">
+        <h1>💈 Elite Barber Shop</h1>
+        <p>Book your haircut in seconds</p>
+    </div>
+
+   <div id="booking" class="container">
+
+        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033" alt="barber">
+
+        <h2>Book Appointment</h2>
+
+        <form method="POST" action="/book">
+
+            <input type="text" name="name" placeholder="Name" required>
+
+            <input type="text" name="phone" placeholder="Phone" required>
+
+            <input type="text" name="service"
+                   placeholder="Service (Fade, Afro, etc)" required>
+
+            <input type="date" name="date" required>
+
+            <input type="time" name="time" required>
+
+            <button type="submit">Book Now</button>
+
+        </form>
+
+    </div>
+
+</body>
+  </html>
