@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background:#f2f2f2;
+        margin:0;
+        padding:15px;
+    }
+    h1{ text-align:center; }
+   .top-bar{ text-align:center; margin-bottom:20px; }
+   .btn{
+        display:inline-block;
+        padding:10px 15px;
+        text-decoration:none;
+        border-radius:5px;
+        color:white;
+        margin:5px;
+        background:#333;
+    }
+   .btn:hover{ background:#555; }
+   .stats-btn{ background:green; }
+   .logout-btn{ background:red; }
+    table{
+        width:100%;
+        border-collapse:collapse;
+        background:white;
+    }
+    th{
+        background:black;
+        color:white;
+        padding:10px;
+    }
+    td{
+        padding:10px;
+        text-align:center;
+        border-bottom:1px solid #ddd;
+    }
+   .approved{ color:green; font-weight:bold; }
+   .rejected{ color:red; font-weight:bold; }
+   .pending{ color:orange; font-weight:bold; }
+    @media(max-width:700px){
+        table{ font-size:12px; }
+        td, th{ padding:5px; }
+    }
+</style>
+</head>
+<body>
+<h1>💈 Admin Dashboard</h1>
+
+<div class="top-bar">
+    <a class="btn stats-btn" href="/stats">📊 Statistics</a>
+    <a class="btn logout-btn" href="/logout">🚪 Logout</a>
+    <a class="btn" href="/upload">📸 Upload Style</a>
+</div>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Service</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+{% for booking in bookings %}
+<tr>
+    <td>{{ booking[0] }}</td> <!-- id -->
+    <td>{{ booking[1] }}</td> <!-- name -->
+    <td>{{ booking[2] }}</td> <!-- phone -->
+    <td>{{ booking[3] }}</td> <!-- service -->
+    <td>{{ booking[4] }}</td> <!-- date -->
+    <td>{{ booking[5] }}</td> <!-- time -->
+    <td>
+        {% if booking[6] == "approved" %}
+            <span class="approved">✅ Approved</span>
+        {% elif booking[6] == "rejected" %}
+            <span class="rejected">❌ Rejected</span>
+        {% else %}
+            <span class="pending">⏳ Pending</span>
+        {% endif %}
+    </td>
+    <td>
+        <a href="/edit/{{ booking[0] }}">✏️</a>
+        <a href="/approve/{{ booking[0] }}">✅</a>
+        <a href="/reject/{{ booking[0] }}">❌</a>
+        <a href="/delete/{{ booking[0] }}">🗑️</a>
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+</body>
+  </html>
