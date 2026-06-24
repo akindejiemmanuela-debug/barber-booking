@@ -1,0 +1,118 @@
+<!DOCTYPE html><html>
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Upload Hair Style</title>
+
+<style>
+
+    body{
+        font-family:Arial, sans-serif;
+        background:#f2f2f2;
+        margin:0;
+    }
+
+    .navbar{
+        background:black;
+        padding:15px;
+    }
+
+    .navbar a{
+        color:white;
+        text-decoration:none;
+        margin-right:20px;
+    }
+
+    .card{
+        width:90%;
+        max-width:500px;
+        margin:50px auto;
+        background:white;
+        padding:30px;
+        border-radius:10px;
+        box-shadow:0px 0px 10px lightgray;
+    }
+
+    h1{
+        text-align:center;
+    }
+
+    input[type="file"]{
+        width:100%;
+        padding:10px;
+        margin-top:15px;
+    }
+
+    button{
+        width:100%;
+        padding:12px;
+        margin-top:20px;
+        background:black;
+        color:white;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+    }
+
+    button:hover{
+        background:green;
+    }
+
+    .back-btn{
+        display:block;
+        text-align:center;
+        text-decoration:none;
+        background:#444;
+        color:white;
+        padding:10px;
+        border-radius:5px;
+        margin-top:15px;
+    }
+
+    .back-btn:hover{
+        background:#666;
+    }
+
+</style>
+
+</head><body><div class="navbar">
+    <a href="/admin">Dashboard</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/logout">Logout</a>
+</div><div class="card"><h1>📸 Upload Hair Style</h1>
+
+<form method="POST"
+      action="/upload"
+      enctype="multipart/form-data">
+
+    <input type="file"
+           name="image"
+           required>
+
+   <input type="text"
+       name="title"
+       placeholder="Style Name"
+       required>
+
+<input type="text"
+       name="price"
+       placeholder="Price"
+       required>
+
+<textarea
+          name="description"
+          placeholder="Description">
+</textarea>
+    
+     
+       <button type="submit">
+        Upload Style
+    </button>
+
+</form>
+
+<a href="/admin" class="back-btn">
+    ← Back to Dashboard
+</a>
+
+</div></body>
+</html>
